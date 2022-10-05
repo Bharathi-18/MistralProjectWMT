@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>        <style>
+
+.card{
+    margin-top: 7%;
+    width: 80%;
+    height:60%;
+}
+
+.btn{
+color:white;
+font-size:16px;
+background-color: #1F2937;
+border-radius: 5px;
+width:70px;
+height:40px;
+text-align: center;
+padding:3px;
+margin-top: 40px;
+}
+.btn:hover{
+ background-color: #596679;
+ color:#1F2937 ;
+}
+input{
+    padding:5px;
+    width: 300px;
+    border:none;
+    border-bottom: 2px solid #1F2937;
+    background-color: white;
+}
+
+.field{
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 35%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 2px solid #1F2937;
+  outline: none;
+}
+.content{
+    margin-top: 60px;
+}
+.btn-box button{
+    width: 22%;
+    height: 35%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #eee;
+    color: #1F2937;
+    margin-top: 100px;
+    font-weight: bold;
+}
+#btn1{
+    background-color: #1F2937;
+    color: white;
+}
+.btn-box button:hover{
+    background-color:whitesmoke;
+    color:#1F2937;
+}
+#content2{
+    display: none;
+}
+        </style>
+        <script>
+            // var tab_btn = document.querySelectorAll(".tab .btn-box button");
+            // var tab_cont = document.querySelectorAll(".tab .main .content");
+
+            // function show(panelIndex,colorCode){
+            //     tab_btn.forEach(function(node){
+            //         node.style.backgroundColor="";
+            //         node.style.color="";
+            //     });
+            //     tab_btn[panelIndex].style.backgroundColor=colorCode;
+            //     tab_btn[panelIndex].style.color="#1F2937";
+            //     tab_cont.forEach(function(node){
+            //         node.style.display="none";
+            //     });
+            //     tab_cont[panelIndex].style.display="block";
+            //     tab_cont[panelIndex].style.backgroundColor=colorCode;
+            // }
+            // show(0,'#d7d4d4');
+            function loc(){
+                document.getElementById("content1").style.display="block";
+                document.getElementById("content2").style.display="none";
+                document.getElementById("btn1").style.backgroundColor="#1F2937";
+                document.getElementById("btn1").style.color="white";
+                document.getElementById("btn2").style.backgroundColor="#eee";
+                document.getElementById("btn2").style.color="#1F2937";
+            }
+            function sen(){
+                document.getElementById("content1").style.display="none";
+                document.getElementById("content2").style.display="block";
+                document.getElementById("btn2").style.backgroundColor="#1F2937";
+                document.getElementById("btn2").style.color="white";
+                document.getElementById("btn1").style.backgroundColor="#eee";
+                document.getElementById("btn1").style.color="#1F2937";
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+    <div class="card shadow-lg rounded">
+        <div class="btn-box">
+            <button onclick="loc();" class="btn1" id="btn1">+ Add Location</button>
+            <button onclick="sen();" class="btn2" id="btn2">+ Add Sensor</button>
+        </div>
+        <div class="main">
+            <div class="content" id="content1">
+                <input type="text" class="field" placeholder="Enter location" name="location" maxlength="50" size="30">
+                <input type="submit" value="Add" name="addlocation" class="btn">
+            </div>
+            <div class="content" id="content2">
+                <input type="text" class="field" placeholder="Enter sensor" name="sensor" maxlength="50" size="30">
+                <input type="submit" value="Add" name="addsensor" class="btn">
+            </div>
+        </div>
+    </div>
+        </center>
+     </body>
+</html>

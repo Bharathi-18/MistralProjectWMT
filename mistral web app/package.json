@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "firebase": "^9.10.0",
+    "mqtt": "^4.3.7",
+    "mysql": "^2.18.1"
+  }
+}
