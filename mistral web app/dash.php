@@ -279,7 +279,7 @@ function slideClose(){
     <body>
         
         <div id="content">
-            <div class="cls shadow-lg" id="menu">
+            <div class="cls shadow-lg rounded" id="menu">
             <div class=""><br><br><br></div>
 <div class="nav1 " >
     <button onclick="homefunc()" class="btn" id="home">
