@@ -225,6 +225,7 @@ function slideClose(){
    document.getElementById("id3").style.display="none";
    document.getElementById("id4").style.display="none";
    document.getElementById("id5").style.display="none";
+   document.getElementById("searching").style.display="flex";
             }
             function configfunc(){
    document.getElementById("id1").style.display="none";
