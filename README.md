@@ -1,2 +1,2 @@
-# Mistral-Project---WMT
+# MistralProjectWMT
 water monitoring tool
