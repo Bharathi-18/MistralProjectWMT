@@ -7,7 +7,6 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
         <style>
             .card{
                 margin-top:5%;
@@ -62,8 +61,6 @@
             display: block;
             }
         </style>
-        
-        
     </head>
     <body>
         <div class="card shadow rounded" >
@@ -71,50 +68,49 @@
                 <div class="name">
                     <h1>Dashboard Creation</h1>
                 </div>
-            <form method="POST">
-                <div class="dashName">
-                    <input type="text" id="dashName" class="shadow-sm rounded" placeholder="Dashboard Name">
-                </div>
-            
-                <div class="loc">
-                    <input class="shadow-sm  rounded" list="locations" name="location" id="location" placeholder="Choose location">
-                    <datalist id="locations">
-                        <option value="Tirunelveli">
-                        <option value="kvp">
-                        <option value="Chennai">
-                        <option value="tuty">
-                        <option value="theni">
-                    </datalist>
-                </div>
+                <form method="POST">
+                    <div class="dashName">
+                        <input type="text" id="dashName" class="shadow-sm rounded" placeholder="Dashboard Name">
+                    </div>
+                    <div class="loc">
+                        <input class="shadow-sm  rounded" list="locations" name="location" id="location" placeholder="Choose location">
+                        <datalist id="locations">
+                            <option value="Tirunelveli">
+                            <option value="kvp">
+                            <option value="Chennai">
+                            <option value="tuty">
+                            <option value="theni">
+                        </datalist>
+                    </div>
             </center>
-            <div class="aligning" style="padding-top:0px; display:inline-flex;align-items: center;justify-content: center;">
-                <div style="margin-right:15px;">&nbsp;</div>    
-                <div class="sensor" >
-                    <input class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >
-                    <datalist id="sensorlist">
-                        <?php
+                    <div class="aligning" style="padding-top:0px; display:inline-flex;align-items: center;justify-content: center;">
+                        <div style="margin-right:15px;">&nbsp;</div>    
+                        <div class="sensor" >
+                            <input class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >
+                            <datalist id="sensorlist">
+                                <?php
 
-                            $var = "<option value=\"Tempture\"><option value=\"TDS\"><option value=\"Turbidity\"><option value=\"PH\"><option value=\"Phss\">";
-                            echo $var;
-                        ?>
+                                    $var = "<option value=\"Tempture\"><option value=\"TDS\"><option value=\"Turbidity\"><option value=\"PH\"><option value=\"Phss\">";
+                                    echo $var;
+                                ?>
 
-                    </datalist>            
-                </div>
-                <div class="icons1" >
-                    <i class="add fa fa-plus-circle" onclick="fun()"></i>
-                </div>
-            </div>
-            <div class="dash_list">
-                <ul id="list"></ul>
-            </div>
-            <center>
-                <input type="button" onclick="addLis()" class="btn shadow rounded" value="Create">
-            </center>
-        </form>
-        <p id="demo"></p>
+                            </datalist>            
+                        </div>
+                        <div class="icons1" >
+                            <i class="add fa fa-plus-circle" onclick="fun()"></i>
+                        </div>
+                    </div>
+                    <div class="dash_list">
+                        <ul id="list"></ul>
+                    </div>
+                    <center>
+                        <input type="button" onclick="addLis()" class="btn shadow rounded" value="Create">
+                    </center>
+                </form>
+            <p id="demo"></p>
         </div>
-     </body>
-     <script>
+    </body>
+    <script>
         var lis = [];
         var str;
         function fun()
@@ -122,7 +118,6 @@
             var a=document.getElementById("location").value;
             var b=document.getElementById("sens").value;
             str=a+"/"+b;
-
             var li=document.createElement('li');
             li.appendChild(document.createTextNode(str));
             li.addEventListener('click',function(){
@@ -132,7 +127,6 @@
             document.querySelector('ul').appendChild(li);
             lis.push(str);
         }
-
         function addLis()
         {
             var res = "";

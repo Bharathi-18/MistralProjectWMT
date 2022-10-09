@@ -22,7 +22,6 @@
         $user = "root";
         $pass = "";
         $conn = new mysqli($host,$user,$pass,$db1);
-        // $db = $conn;
         $flag = 0;
         $dashName = "";
         for($temp = 0;$temp<strlen($p);$temp++)
@@ -36,7 +35,6 @@
                 $dashName.=$p[$temp];
             }
         }
-
         $stmntTemp = $conn->query("SELECT * FROM dbnames");
         if($stmntTemp)
         {
@@ -69,8 +67,7 @@
                 $stmnt->execute();
                 echo "str : ".$str;
                 echo "<br><br>";
-                $str = "";
-                
+                $str = ""; 
             }
             else
             {

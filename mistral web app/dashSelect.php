@@ -10,45 +10,45 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> 
         <style>
-        .dashSelect
-        {
+          .dashSelect
+          {
             margin:10px;
-        }
-        .names{
-        text-align: center;
-        font-size:32px;
-        color:#1F2937;
-        font-weight: bold;
-      }
-      .content
-      {
-        margin:10px;
-      }
+          }
+          .names{
+            text-align: center;
+            font-size:32px;
+            color:#1F2937;
+            font-weight: bold;
+          }
+          .content
+          {
+            margin:10px;
+          }
         </style>
     </head>
 
-<script>
+    <script>
 
-function selectDashboard()
-{
-    var dash = document.getElementById("dash").value;
+        function selectDashboard()
+        {
+            var dash = document.getElementById("dash").value;
 
-    if(dash==="public")
-    {
-        window.location = "dashSelect.php";
-        document.getElementById("publicDash").style = "display:flex";
-    }
-    if(dash!=="--select dashboard--" && dash!=="public")
-    {
-        document.getElementById("publicDash").style = "display:none";
-        window.location = "homes.php?var="+dash;
-    }
-}
+            if(dash==="public")
+            {
+                window.location = "dashSelect.php";
+                document.getElementById("publicDash").style = "display:flex";
+            }
+            if(dash!=="--select dashboard--" && dash!=="public")
+            {
+                document.getElementById("publicDash").style = "display:none";
+                window.location = "homes.php?var="+dash;
+            }
+        }
 
-</script>
+    </script>
 
-<body>
-    <?php
+    <body>
+      <?php
         session_start();
         $host = "localhost";
         $user = "root";
@@ -71,20 +71,19 @@ function selectDashboard()
         else{
             echo "<h1>Configure Dashboard</h1>";
         }
-    ?>
+      ?>
 
-        <div class="dashSelect">
-            <input onChange="selectDashboard();" class="shadow-sm rounded"  list="dashSelect" id="dash" placeholder=" --select dashboard--">
-            <datalist id="dashSelect">
-                    <?php
-                    
-                    echo $printVal;
+      <div class="dashSelect">
+          <input onChange="selectDashboard();" class="shadow-sm rounded"  list="dashSelect" id="dash" placeholder=" --select dashboard--">
+          <datalist id="dashSelect">
+              <?php              
+                echo $printVal;
 
-                    ?>
-            </datalist>
-            </select>
-        </div>
-        <?php
+              ?>
+          </datalist>
+          </select>
+      </div>
+      <?php
 
         $host = "localhost";
         $user = "root";
@@ -94,55 +93,58 @@ function selectDashboard()
         $query = "SELECT * from public";
         $dashboardName = "Public Dashboard";
         $result = $conn->query($query);
-        ?>
-        <div id="publicDash" class="names">
+      ?>
+      <div id="publicDash" class="names">
         <?php echo "<br>".$dashboardName."<br><br>" ?>
         </div>
         <?php
-        $res = '<div id="publicDash" class="card-deck">  ';
-        $className = "card bg-warning";
-        $cnt = 0;
-        if($result== true){ 
-          if ($result->num_rows > 0) {
-            while($rslt =  mysqli_fetch_assoc($result))
-            {
-              if($cnt%3==0)
+          $res = '<div id="publicDash" class="card-deck">  ';
+          $className = "card bg-warning";
+          $cnt = 0;
+          if($result== true){ 
+            if ($result->num_rows > 0) {
+              while($rslt =  mysqli_fetch_assoc($result))
               {
-                $className = "card bg-warning";
+                if($cnt%3==0)
+                {
+                  $className = "card bg-warning";
+                }
+                else if($cnt%3==1)
+                {
+                  $className = "card bg-success";          
+                }
+                else if($cnt%3==2)
+                {
+                  $className = "card bg-danger";          
+                }
+                $res = $res."<div class=".'"'.$className.'"'."style=".'"'."height:200px;".'"'."><div class=".'"'."card-body text-center";
+                $res = $res.'"'."><button id=\"btnName\" type=\"button\" class=\"btn btn-dark\" value=\"".$rslt['locSen']."\">sensors</button></div>";
+
+                $tempVar = "";
+                $s = $rslt['locSen'];
+                $val = "";
+                $res = $res."<div class=\"card-body text-center\"><p class=\"card-text\">".$rslt['locSen']."</p><br><br><p class=\"card-text\">".$val."</div></div>";
+                $cnt++;
+                if($cnt%3==0)
+                { 
+                  $res = $res.'</div><br><br><div class="card-deck">';
+                }
               }
-              else if($cnt%3==1)
-              {
-                $className = "card bg-success";          
-              }
-              else if($cnt%3==2)
-              {
-                $className = "card bg-danger";          
-              }
-              $res = $res."<div class=".'"'.$className.'"'."style=".'"'."height:200px;".'"'."><div class=".'"'."card-body text-center";
-              $res = $res.'"'."><button id=\"btnName\" type=\"button\" class=\"btn btn-dark\" value=\"".$rslt['locSen']."\">sensors</button></div>";
-              
-              $tempVar = "";
-              $s = $rslt['locSen'];
-              $val = "";
-              $res = $res."<div class=\"card-body text-center\"><p class=\"card-text\">".$rslt['locSen']."</p><br><br><p class=\"card-text\">".$val."</div></div>";
-              $cnt++;
-              if($cnt%3==0)
-              {
-                $res = $res.'</div><br><br><div class="card-deck">';
-              }
+              $res = $res."</div>";
             }
-            $res = $res."</div>";
-          } else {
-            $res = "<h1 class='emptyRecord'>no record found</h1>";  
-          }
-        }else{
-          $msg= mysqli_error($db);
-        }
+            else
+            {
+              $res = "<h1 class='emptyRecord'>no record found</h1>";  
+            }
+            }
+            else{
+              $msg= mysqli_error($db);
+            }
         ?>
-        <div class="content">
-        <?php
-        echo $res;
-        ?>
-        </div>
-</body>
+          <div class="content">
+            <?php
+              echo $res;
+            ?>
+          </div>
+    </body>
 </html>

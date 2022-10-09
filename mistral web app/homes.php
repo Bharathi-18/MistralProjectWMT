@@ -1,7 +1,5 @@
 <?php
-
-include 'dashSelect.php';
-
+  include 'dashSelect.php';
 ?>
 
 <html>
@@ -29,15 +27,11 @@ include 'dashSelect.php';
       {
         color: #1F2937;
       }
-
     </style>
   </head>
   <body style="overflow-x: hidden;">
-
       <br> 
       <?php      
-        // include 'dashSelect.php';
-        // session_start();
         $host = "localhost";
         $user = "root";
         $pass = "";
@@ -48,17 +42,14 @@ include 'dashSelect.php';
         $dashBoardRes = mysqli_fetch_assoc($dashBoard);
         $tableName = $dashBoardRes['id'];
         $dashboardName = $dashBoardRes['names'];
-        ?>
-        <div class="names">
+      ?>
+      <div class="names">
         <?php echo $dashboardName ?>
-        </div>
-        <br> <br>  <br>
-        <?php
+      </div>
+      <br> <br>  <br>
+      <?php
         $query = "SELECT * from ".$tableName;
-        
         $result = $conn->query($query);
-
-
         $res = '<div class="card-deck">';
         $className = "card bg-warning";
         $cnt = 0;
@@ -100,9 +91,9 @@ include 'dashSelect.php';
         }
         ?>
         <div class="content">
-        <?php
-        echo $res;
-        ?>
+          <?php
+            echo $res;
+          ?>
         </div>
-  </body>
+    </body>
 </html>
