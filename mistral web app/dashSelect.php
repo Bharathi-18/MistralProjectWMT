@@ -14,6 +14,16 @@
         {
             margin:10px;
         }
+        .names{
+        text-align: center;
+        font-size:32px;
+        color:#1F2937;
+        font-weight: bold;
+      }
+      .content
+      {
+        margin:10px;
+      }
         </style>
     </head>
 
@@ -22,8 +32,17 @@
 function selectDashboard()
 {
     var dash = document.getElementById("dash").value;
-    if(dash!=="--select dashboard--")
+
+    if(dash==="public")
+    {
+        window.location = "dashSelect.php";
+        document.getElementById("publicDash").style = "display:flex";
+    }
+    if(dash!=="--select dashboard--" && dash!=="public")
+    {
+        document.getElementById("publicDash").style = "display:none";
         window.location = "homes.php?var="+dash;
+    }
 }
 
 </script>
@@ -41,7 +60,7 @@ function selectDashboard()
 
         $stmnt = $conn->query("SELECT * FROM dbnames");
 
-        $printVal = "";
+        $printVal = "<option value=\"public\">";
         if($stmnt){
 
         while($str = mysqli_fetch_assoc($exec))
@@ -65,6 +84,65 @@ function selectDashboard()
             </datalist>
             </select>
         </div>
+        <?php
 
+        $host = "localhost";
+        $user = "root";
+        $pass = "";
+        $db = $_SESSION['user'];
+        $conn = new mysqli($host,$user,$pass,"wmt");
+        $query = "SELECT * from public";
+        $dashboardName = "Public Dashboard";
+        $result = $conn->query($query);
+        ?>
+        <div id="publicDash" class="names">
+        <?php echo "<br>".$dashboardName."<br><br>" ?>
+        </div>
+        <?php
+        $res = '<div id="publicDash" class="card-deck">  ';
+        $className = "card bg-warning";
+        $cnt = 0;
+        if($result== true){ 
+          if ($result->num_rows > 0) {
+            while($rslt =  mysqli_fetch_assoc($result))
+            {
+              if($cnt%3==0)
+              {
+                $className = "card bg-warning";
+              }
+              else if($cnt%3==1)
+              {
+                $className = "card bg-success";          
+              }
+              else if($cnt%3==2)
+              {
+                $className = "card bg-danger";          
+              }
+              $res = $res."<div class=".'"'.$className.'"'."style=".'"'."height:200px;".'"'."><div class=".'"'."card-body text-center";
+              $res = $res.'"'."><button id=\"btnName\" type=\"button\" class=\"btn btn-dark\" value=\"".$rslt['locSen']."\">sensors</button></div>";
+              
+              $tempVar = "";
+              $s = $rslt['locSen'];
+              $val = "";
+              $res = $res."<div class=\"card-body text-center\"><p class=\"card-text\">".$rslt['locSen']."</p><br><br><p class=\"card-text\">".$val."</div></div>";
+              $cnt++;
+              if($cnt%3==0)
+              {
+                $res = $res.'</div><br><br><div class="card-deck">';
+              }
+            }
+            $res = $res."</div>";
+          } else {
+            $res = "<h1 class='emptyRecord'>no record found</h1>";  
+          }
+        }else{
+          $msg= mysqli_error($db);
+        }
+        ?>
+        <div class="content">
+        <?php
+        echo $res;
+        ?>
+        </div>
 </body>
 </html>

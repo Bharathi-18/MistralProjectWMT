@@ -11,6 +11,10 @@ include 'dashSelect.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 
     <style>
+      #publicDash
+      {
+        display:none;
+      }
       .content
       {
         margin:10px;
@@ -38,21 +42,9 @@ include 'dashSelect.php';
         $user = "root";
         $pass = "";
         $db = $_SESSION['user'];
-        // $dashboardName = $_POST['dashSelect'];
-        // echo $dashboardName;
-
-        // echo $var;
-
-        // echo "get val : ".$_GET['var'];
-        // echo "homes";
         $conn = new mysqli($host,$user,$pass,$db);
-        // include 'detUser.php';
-        // $tableName = $_SESSION['user'];
-        // echo "session name : ".$tableName." mmm";
-
         $query = "SELECT * FROM dbnames where names='".$_GET['var']."'";
         $dashBoard = $conn->query($query);
-
         $dashBoardRes = mysqli_fetch_assoc($dashBoard);
         $tableName = $dashBoardRes['id'];
         $dashboardName = $dashBoardRes['names'];
@@ -92,30 +84,6 @@ include 'dashSelect.php';
               $tempVar = "";
               $s = $rslt['locSen'];
               $val = "";
-              // for($i=0;$i<strlen($s);$i++)
-              // {
-              //     if($s[$i]=='/')
-              //     {
-              //       break;
-              //     }
-              // }
-              // for($j=$i;$j<strlen($s);$j++)
-              // {
-              //   $tempVar += $s[$j];
-              // }
-
-              // if($tempVar=="temperature")
-              // {
-              //   $val = shell_exec(escapeshellcmd('python subscribe.py TemperatureCelsius TemperatureFarenheit'));
-              // }
-              // if($tempVar=="ph")
-              // {
-              //   $val = shell_exec(escapeshellcmd('python subscribe.py PH_value PH_status'));
-              // }
-              // if($tempVar=="TDS")
-              // {
-              //   $val = shell_exec(escapeshellcmd('python subscribe.py TDS TDS_status'));
-              // }
               $res = $res."<div class=\"card-body text-center\"><p class=\"card-text\">".$rslt['locSen']."</p><br><br><p class=\"card-text\">".$val."</div></div>";
               $cnt++;
               if($cnt%3==0)
