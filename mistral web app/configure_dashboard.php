@@ -1,12 +1,13 @@
 <html>
     <head>
-        <title>Dashboard---Configuration</title>
+        <title>Dashboard Configuration</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
         <style>
             .card{
                 margin-top:5%;
@@ -89,11 +90,9 @@
                             <input class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >
                             <datalist id="sensorlist">
                                 <?php
-
-                                    $var = "<option value=\"Tempture\"><option value=\"TDS\"><option value=\"Turbidity\"><option value=\"PH\"><option value=\"Phss\">";
+                                    $var = "<option value=\"Temperature\"><option value=\"TDS\"><option value=\"Turbidity\"><option value=\"PH\">";
                                     echo $var;
                                 ?>
-
                             </datalist>            
                         </div>
                         <div class="icons1" >
@@ -119,13 +118,25 @@
             var b=document.getElementById("sens").value;
             str=a+"/"+b;
             var li=document.createElement('li');
-            li.appendChild(document.createTextNode(str));
-            li.addEventListener('click',function(){
-                li.style.display="none";
-                lis.pop();
-            },false);
-            document.querySelector('ul').appendChild(li);
-            lis.push(str);
+            var flag = 0;
+            for(let temp of lis)
+            {
+                if(str===temp)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag==0)
+            {
+                li.appendChild(document.createTextNode(str));
+                li.addEventListener('click',function(){
+                    li.style.display="none";
+                    lis.pop();
+                },false);
+                document.querySelector('ul').appendChild(li);
+                lis.push(str);
+            }
         }
         function addLis()
         {

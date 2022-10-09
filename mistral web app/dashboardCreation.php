@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+
+    .names{
+        text-align: center;
+        font-size:32px;
+        color:#1F2937;
+        font-weight: bold;
+        top: 50%;
+        left: 50%;
+      }
+
+</style>
+
 <body>
-    <div class="">
-        <h1>Bharathi</h1>
-    </div>
+
     <?php
         session_start();
         $db1 = $_SESSION['user'];
         $p = $_GET["lis"];
-        echo $p;
-        echo "<br><br>";
-        echo "DB : ".$db1;
         $str = "";
         $host = "localhost";
         $user = "root";
@@ -74,7 +83,13 @@
                 $str=$str.$p[$i];
             }
         }
-        header('location:configure_dashboard.php');
+
+        // header('location:configure_dashboard.php');
     ?>
+
+        <div class="names">
+            <h1>Dashboard created successfully</h1>
+        </div>
+
 </body>
 </html>
