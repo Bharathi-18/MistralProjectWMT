@@ -69,7 +69,9 @@ var chart_data = {
 //original canvas
 var canvas = document.querySelector('#cool-canvas');
 var context = canvas.getContext('2d');
+
 new Chart(context).Line(chart_data);
+
 //hidden canvas
 var newCanvas = document.querySelector('#supercool-canvas');
 newContext = newCanvas.getContext('2d');
@@ -79,19 +81,19 @@ supercoolcanvas.defaults.global = {
 }
 //add event listener to button
 //donwload pdf from original canvas
-
-
-
-
     }
     function downloadPDF2() {
    var canvas = document.querySelector('#cool-canvas');
-   var canvasImg = canvas.toDataURL("image/jpeg", 1.0);
-   var doc = new jsPDF('landscape');
-   doc.setFontSize(20);
-   doc.text(15, 15, "Cool Chart");
-   doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150 );
+   var canvasImg = canvas.toDataURL("image/png");
+// var img = new Image();
+// img.src = canvasImg;
+// img.style.backgroundColor =  "white";
+// $( "body" ).append( img );
+   var doc = new jsPDF('p','mm');
+   doc.setFontSize(30);
+   doc.addImage(canvasImg, 'PNG', 10, 10, 150, 100 );
    doc.save('canvas.pdf');
+   
    let datas = $("#export-data").val();
                     if(datas == ''){
                         return;
@@ -109,7 +111,7 @@ supercoolcanvas.defaults.global = {
                 CSV += ReportTitle+"of nellai neervalam" + '\r\n\n';
 
                 //This condition will generate the Label/Header
-                if (ShowLabel) {
+                if (ShowLabel) {          
                     var row = "";
                     
                     //This loop will extract the label from 1st index of on array
@@ -153,7 +155,7 @@ supercoolcanvas.defaults.global = {
                 //Initialize file format you want csv or xls
                 var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
                 
-                // Now the little tricky part.
+                // Now the little     tricky part.
                 // you can use either>> window.open(uri);
                 // but this will not work in some browsers
                 // or you will not get the correct file extension    
