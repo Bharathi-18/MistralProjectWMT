@@ -1,8 +1,7 @@
 <?php
       $dataPoints=array();
       $reads=array();
-      $csvdata=array();
-      
+      $csvdata=array();     
 ?>
 <?php
 $con=mysqli_connect('localhost','root','','reports');

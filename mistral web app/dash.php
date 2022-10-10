@@ -218,15 +218,13 @@
                 document.getElementById("searching").style.display="flex";
             }
             function configfunc(){
-   document.getElementById("id1").style.display="none";
-   document.getElementById("id2").style.display="flex";
-   document.getElementById("id3").style.display="none";
-   document.getElementById("id4").style.display="none";
-   document.getElementById("id5").style.display="none";
-   document.getElementById("searching").style.display="none";
-   document.getElementById("popup").style.display="none";
-
-
+                document.getElementById("id1").style.display="none";
+                document.getElementById("id2").style.display="flex";
+                document.getElementById("id3").style.display="none";
+                document.getElementById("id4").style.display="none";
+                document.getElementById("id5").style.display="none";
+                document.getElementById("searching").style.display="none";
+                document.getElementById("popup").style.display="none";
             }
             function reportfunc(){
                 document.getElementById("id1").style.display="none";
@@ -265,33 +263,34 @@
         </script>
     </head>
     <body>
-        
+
         <div id="content">
             <div class="cls shadow-lg rounded" id="menu">
-            <div class=""><br><br><br></div>
-<div class="nav1 " >
-    <button onclick="homefunc()" class="btn" id="home">
+                <div class=""><br><br><br></div>
+                <div class="nav1">
+                    <button onclick="homefunc()" class="btn" id="home">
                     <i class="fa fa-home" aria-hidden="true"></i>
-                   Home
-                </button></div>
-               <div class="nav1"> <button onclick="reportfunc()" class="btn" id="report">
-                     <i class="fa fa-file" aria-hidden="true"></i>
-                    Report
-               </button></div>
-               <div class="set nav1"> <button onclick="popup()" class="btn" id="report1">
-                <i class="fa fa-cog" aria-hidden="true"></i>
-               Settings
-          </button><br>
-        
-        </div>
-            </div>
-            <div class="top shadow-lg rounded">
-                <ul class="list">
-                    <li>
-                        <a href="#" onclick="slideOpen()">
-                            <i class="fa fa-bars" id="bars"></i>
-                        </a>
-                    </li>
+                        Home
+                    </button></div>
+                    <div class="nav1">
+                        <button onclick="reportfunc()" class="btn" id="report">
+                            <i class="fa fa-file" aria-hidden="true"></i>
+                                Report
+                        </button></div>
+                        <div class="set nav1">
+                            <button onclick="popup()" class="btn" id="report1">
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                Settings
+                            </button><br>        
+                        </div>
+                    </div>
+                <div class="top shadow-lg rounded">
+                    <ul class="list">
+                        <li>
+                            <a href="#" onclick="slideOpen()">
+                                <i class="fa fa-bars" id="bars"></i>
+                            </a>
+                        </li>
                     <li>
                         <h1 id="main">Nellai Neervalam</h1>
                     </li>
@@ -325,11 +324,9 @@
                    Configure Dashboards
               </button>
         </div>
-</div>
-
-
-</div>
-<div id="id1">
+        </div>
+        </div>
+            <div id="id1">
                 <iframe src="dashSelect.php" style="border:1px black;height:85vh;width:100%;"></iframe>
             </div>  
             <div id="id2">
@@ -344,25 +341,5 @@
             <div id="id5">
                 <iframe src="add.html" style="border:1px black;height:90vh;width:100%;"></iframe>
             </div>
-
-<<<<<<< HEAD
-        </div>
-        <div id="id1">
-            <iframe src="dashSelect.php" style="height:90vh;width:99%;"></iframe>
-        </div>  
-        <div id="id2">
-            <iframe src="configure_dashboard.php" style="height:85vh;width:100%"></iframe>
-        </div>
-        <div id="id3">
-            <iframe src="report.html"  style="width:100%;height:90vh;" ></iframe>
-        </div>
-        <div id="id4">
-            <iframe src="createUser.php"  style="height:90vh;width:100%"></iframe>
-        </div>
-        <div id="id5">
-            <iframe src="add.html" style="height:90vh;width:100%;"></iframe>
-        </div>
-=======
->>>>>>> f08b6d98d236e9d513c7f19cdf7ffb869a4b0b84
     </body>
 </html>

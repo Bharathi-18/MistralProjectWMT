@@ -65,7 +65,7 @@
 
         while($str = mysqli_fetch_assoc($exec))
         {
-            $printVal.="<option value=\"".$str['names']."\">";
+            $printVal.="<option value=\"".$str['names']."\">";  
         }
         }
         else{

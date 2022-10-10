@@ -106,6 +106,11 @@
                         <input type="button" onclick="addLis()" class="btn shadow rounded" value="Create">
                     </center>
                 </form>
+
+                <div class="availDash">
+                           
+                </div>
+
             <p id="demo"></p>
         </div>
     </body>
