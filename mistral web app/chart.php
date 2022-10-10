@@ -88,7 +88,7 @@ supercoolcanvas.defaults.global = {
     function downloadPDF2() {
    var canvas = document.querySelector('#cool-canvas');
    var canvasImg = canvas.toDataURL("image/jpeg", 1.0);
-   var doc = new jsPDF('landscape');
+   var doc = new jsPDF('potrait');
    doc.setFontSize(20);
    doc.text(15, 15, "Cool Chart");
    doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150 );
@@ -110,7 +110,7 @@ supercoolcanvas.defaults.global = {
                 CSV += ReportTitle+"of nellai neervalam" + '\r\n\n';
 
                 //This condition will generate the Label/Header
-                if (ShowLabel) {
+                if (ShowLabel) {          
                     var row = "";
                     
                     //This loop will extract the label from 1st index of on array
@@ -154,7 +154,7 @@ supercoolcanvas.defaults.global = {
                 //Initialize file format you want csv or xls
                 var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
                 
-                // Now the little tricky part.
+                // Now the little     tricky part.
                 // you can use either>> window.open(uri);
                 // but this will not work in some browsers
                 // or you will not get the correct file extension    
