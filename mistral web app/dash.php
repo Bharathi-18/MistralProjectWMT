@@ -345,5 +345,24 @@
                 <iframe src="add.html" style="border:1px black;height:90vh;width:100%;"></iframe>
             </div>
 
+<<<<<<< HEAD
+        </div>
+        <div id="id1">
+            <iframe src="dashSelect.php" style="height:90vh;width:99%;"></iframe>
+        </div>  
+        <div id="id2">
+            <iframe src="configure_dashboard.php" style="height:85vh;width:100%"></iframe>
+        </div>
+        <div id="id3">
+            <iframe src="report.html"  style="width:100%;height:90vh;" ></iframe>
+        </div>
+        <div id="id4">
+            <iframe src="createUser.php"  style="height:90vh;width:100%"></iframe>
+        </div>
+        <div id="id5">
+            <iframe src="add.html" style="height:90vh;width:100%;"></iframe>
+        </div>
+=======
+>>>>>>> f08b6d98d236e9d513c7f19cdf7ffb869a4b0b84
     </body>
 </html>

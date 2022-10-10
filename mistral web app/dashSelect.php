@@ -12,7 +12,7 @@
         <style>
           .dashSelect
           {
-            margin:10px;
+            padding:10px;
           }
           .names{
             text-align: center;
@@ -22,7 +22,7 @@
           }
           .content
           {
-            margin:10px;
+            padding:10px;
           }
         </style>
     </head>
