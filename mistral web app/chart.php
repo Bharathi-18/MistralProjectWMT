@@ -70,7 +70,9 @@ var chart_data = {
 //original canvas
 var canvas = document.querySelector('#cool-canvas');
 var context = canvas.getContext('2d');
+
 new Chart(context).Line(chart_data);
+
 //hidden canvas
 var newCanvas = document.querySelector('#supercool-canvas');
 newContext = newCanvas.getContext('2d');
@@ -80,19 +82,19 @@ supercoolcanvas.defaults.global = {
 }
 //add event listener to button
 //donwload pdf from original canvas
-
-
-
-
     }
     function downloadPDF2() {
    var canvas = document.querySelector('#cool-canvas');
-   var canvasImg = canvas.toDataURL("image/jpeg", 1.0);
-   var doc = new jsPDF('potrait');
-   doc.setFontSize(20);
-   doc.text(15, 15, "Cool Chart");
-   doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150 );
+   var canvasImg = canvas.toDataURL("image/png");
+// var img = new Image();
+// img.src = canvasImg;
+// img.style.backgroundColor =  "white";
+// $( "body" ).append( img );
+   var doc = new jsPDF('p','mm');
+   doc.setFontSize(30);
+   doc.addImage(canvasImg, 'PNG', 10, 10, 150, 100 );
    doc.save('canvas.pdf');
+   
    let datas = $("#export-data").val();
                     if(datas == ''){
                         return;
