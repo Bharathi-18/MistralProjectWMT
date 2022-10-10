@@ -84,7 +84,7 @@
                         </datalist>
                     </div>
             </center>
-                    <div class="aligning" style="padding-top:0px; display:inline-flex;align-items: center;justify-content: center;">
+                    <div class="aligning" style="margin-top:-12px;padding-top:0; display:inline-flex;align-items: center;justify-content: center;">
                         <div style="margin-right:15px;">&nbsp;</div>    
                         <div class="sensor" >
                             <input class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >

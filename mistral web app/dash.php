@@ -10,7 +10,7 @@
             body{
                 margin: 0;
                 padding: 0;
-                font-family: 'Rubik',sans-serif;
+                font-family: serif;
                 overflow : hidden;
                 background-color:white;
                 height:100%;
@@ -21,10 +21,10 @@
                 
             }
             .btn1{
-                font-size: 20px;
+                font-size: 6px;
                 width:200px;
                 border:none;
-                height:30px;
+                height:40px;
                 background-color:#1F2937;
                 color:whitesmoke;
                 text-align:center;
@@ -35,7 +35,7 @@
                 background-color: whitesmoke;
             }
             .btn{
-                font-size: 20px;
+                font-size: 22px;
                 width:250px ;
                 background-color:#1F2937;
                 color:whitesmoke;
@@ -61,14 +61,16 @@
             .nav1{
                 height:77px;
                 padding-top:10px;
+                font-family:serif,FontAwesome;
+
             }
             .nav1 a{
-                font-size: 18px;
+                font-size: 19px;
                 text-decoration: none;
                 color:whitesmoke;
             }
             .nav1 i{
-                font-family: Arial,FontAwesome;
+            font-family: Arial,FontAwesome;
             }
             
             .btn_cls{
@@ -118,7 +120,8 @@
                 height:65px;
                 width:auto;
                 padding:13px;
-                margin-top:2px;     
+                margin-top:1px;
+                
             }
             .search{
                 height: 30px;
@@ -215,12 +218,15 @@
                 document.getElementById("searching").style.display="flex";
             }
             function configfunc(){
-                document.getElementById("id1").style.display="none";
-                document.getElementById("id2").style.display="flex";
-                document.getElementById("id3").style.display="none";
-                document.getElementById("id4").style.display="none";
-                document.getElementById("id5").style.display="none";
-                document.getElementById("searching").style.display="none";
+   document.getElementById("id1").style.display="none";
+   document.getElementById("id2").style.display="flex";
+   document.getElementById("id3").style.display="none";
+   document.getElementById("id4").style.display="none";
+   document.getElementById("id5").style.display="none";
+   document.getElementById("searching").style.display="none";
+   document.getElementById("popup").style.display="none";
+
+
             }
             function reportfunc(){
                 document.getElementById("id1").style.display="none";
@@ -263,30 +269,21 @@
         <div id="content">
             <div class="cls shadow-lg rounded" id="menu">
             <div class=""><br><br><br></div>
-            <div class="nav1 " >
-                <button onclick="homefunc()" class="btn" id="home">
+<div class="nav1 " >
+    <button onclick="homefunc()" class="btn" id="home">
                     <i class="fa fa-home" aria-hidden="true"></i>
-                    Home
-                </button>
-            </div>
-            <div class="nav1">
-                <button onclick="configfunc()" class="btn" id="config">
-                    <i class="fa fa-th-large" aria-hidden="true"></i>
-                        Configure Dashboards
-                </button>
-            </div>
-            <div class="nav1">
-                <button onclick="reportfunc()" class="btn" id="report">
-                    <i class="fa fa-file" aria-hidden="true"></i>
+                   Home
+                </button></div>
+               <div class="nav1"> <button onclick="reportfunc()" class="btn" id="report">
+                     <i class="fa fa-file" aria-hidden="true"></i>
                     Report
-                </button>
-            </div>
-            <div class="set nav1">
-                <button onclick="popup()" class="btn" id="report1">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                    Settings
-                </button><br>
-            </div>
+               </button></div>
+               <div class="set nav1"> <button onclick="popup()" class="btn" id="report1">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+               Settings
+          </button><br>
+        
+        </div>
             </div>
             <div class="top shadow-lg rounded">
                 <ul class="list">
@@ -312,24 +309,43 @@
                 </ul> 
             </div>  
 
-            <div class="popup" id="popup">
-                <div class="popup-content" >
-                    <div style="padding-bottom:100px">
-                        <img src="pi.png" alt="close" class="close" onclick="popclose()">
-                    </div>         
-                <div style="float:left;padding-left:18px;padding-right:14px">
-                    <button class="drop btn1" onclick="createfunc()">
-                        <i class="fa fa-user-plus" style="font-size:12px"></i>
-                            &nbsp;Create User
-                    </button>
-                </div>
-                <div style="float:left">           
-                    <button class="drop btn1"  onclick="addfunc()"><i class="fa fa-plus" style="font-size:12px"></i>
-                        &nbsp;&nbsp;Add Location/Sensor
-                    </button>
-                </div>       
+
+
+  <div class="popup" id="popup">
+<div class="popup-content" >
+<div style="padding-bottom:40px"><img src="pi.png" alt="close" class="close" onclick="popclose()">  </div>         
+<center> 
+<div style="padding-left:30px;padding-bottom:20px"><button class="drop btn1"  style="font-size:17px"onclick="createfunc()"> <i class="fa fa-user-plus" style="font-size:12px"></i>&nbsp;Create User</button></div>
+<div style="padding-left:30px;padding-bottom:20px">           
+<button class="drop btn1"  onclick="addfunc()" style="font-size:17px"><i class="fa fa-plus" style="font-size:12px"></i>&nbsp;&nbsp;Add Location/Sensor</button>
+     </div>  
+     <div style="padding-left:30px;padding-bottom:20px">      
+     <button onclick="configfunc()" class="btn1" id="config" style="font-size:17px">
+                   <i class="fa fa-th-large" aria-hidden="true" style="font-size:12px"></i>
+                   Configure Dashboards
+              </button>
+        </div>
+</div>
+
+
+</div>
+<div id="id1">
+                <iframe src="dashSelect.php" style="border:1px black;height:85vh;width:100%;"></iframe>
+            </div>  
+            <div id="id2">
+                <iframe src="configure_dashboard.php" style="border:1px black;height:85vh;width:100%"></iframe>
+            </div>
+            <div id="id3">
+                <iframe src="report.php"  style="border:1px black;width:100%;height:90vh;" ></iframe>
+            </div>
+            <div id="id4">
+                <iframe src="createUser.php"  style="border:1px black;height:90vh;width:100%"></iframe>
+            </div>
+            <div id="id5">
+                <iframe src="add.html" style="border:1px black;height:90vh;width:100%;"></iframe>
             </div>
 
+<<<<<<< HEAD
         </div>
         <div id="id1">
             <iframe src="dashSelect.php" style="height:90vh;width:99%;"></iframe>
@@ -346,5 +362,7 @@
         <div id="id5">
             <iframe src="add.html" style="height:90vh;width:100%;"></iframe>
         </div>
+=======
+>>>>>>> f08b6d98d236e9d513c7f19cdf7ffb869a4b0b84
     </body>
 </html>
