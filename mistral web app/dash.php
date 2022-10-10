@@ -332,7 +332,7 @@
 
         </div>
         <div id="id1">
-            <iframe src="dashSelect.php" style="height:85vh;width:100%;"></iframe>
+            <iframe src="dashSelect.php" style="height:90vh;width:99%;"></iframe>
         </div>  
         <div id="id2">
             <iframe src="configure_dashboard.php" style="height:85vh;width:100%"></iframe>
