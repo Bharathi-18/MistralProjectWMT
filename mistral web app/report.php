@@ -44,7 +44,7 @@ padding:20px;
         <div class="name">
             <h1>Report</h1>
         </div>
-     <form action="chart.php" method="get" name="reporting">
+     <form action="newchart.php" method="get" name="reporting">
          <div class="loc">
     <input class="shadow-sm  rounded" list="locations" name="location" id="location" placeholder="Choose location">
   <datalist id="locations">
