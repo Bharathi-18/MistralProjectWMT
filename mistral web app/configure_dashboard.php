@@ -61,6 +61,12 @@
             .dashName,.loc,.sensor,.icons1{
             display: block;
             }
+
+            .dashAlign
+            {
+                /* text-align: left; */
+            }
+
         </style>
     </head>
     <body>
@@ -69,6 +75,7 @@
                 <div class="name">
                     <h1>Dashboard Creation</h1>
                 </div>
+                <div class="dashAlign">
                 <form method="POST">
                     <div class="dashName">
                         <input type="text" id="dashName" class="shadow-sm rounded" placeholder="Dashboard Name">
@@ -106,7 +113,7 @@
                         <input type="button" onclick="addLis()" class="btn shadow rounded" value="Create">
                     </center>
                 </form>
-
+                </div>
                 <div class="availDash">
                            
                 </div>

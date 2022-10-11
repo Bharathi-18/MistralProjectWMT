@@ -8,7 +8,7 @@ client.on("connect",function()
         var random = Math.random()*50;
         console.log(random);
         if(random<30){
-            client.publish('bharathi','MQTT generated Random value : '+random.toString()+'.');
+            client.publish('bharathi','MQTT generated Random value : '+random.toString()+'.'); 
         }
-    }),100000;
+    } ,1000);
 });
