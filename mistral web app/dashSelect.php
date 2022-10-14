@@ -84,7 +84,6 @@
           </select>
       </div>
       <?php
-
         $host = "localhost";
         $user = "root";
         $pass = "";

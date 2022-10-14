@@ -7,7 +7,6 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
         <style>
             .card{
                 margin-top:5%;
@@ -62,10 +61,10 @@
             display: block;
             }
 
-            .dashAlign
+            /* .dashAlign
             {
-                /* text-align: left; */
-            }
+                text-align: left;
+            } */
 
         </style>
     </head>
@@ -97,7 +96,7 @@
                             <input class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >
                             <datalist id="sensorlist">
                                 <?php
-                                    $var = "<option value=\"Temperature\"><option value=\"TDS\"><option value=\"Turbidity\"><option value=\"PH\">";
+                                    $var = "<option value=\"Temperature\"><option value=\"Env-Temp\"><option value=\"Humidity\"><option value=\"Turbidity\"><option value=\"pH\">";
                                     echo $var;
                                 ?>
                             </datalist>            
