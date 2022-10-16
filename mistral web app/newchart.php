@@ -6,7 +6,7 @@
       $clrarray=array(); 
 ?>
 <?php
-$con=mysqli_connect('localhost','root','','wmt');
+$con=mysqli_connect('localhost','root','','reports');
 $loc=$_GET['location'];
 $sen=$_GET['sensors'];
 $start=$_GET['startdate'];
@@ -14,20 +14,20 @@ $end=$_GET['enddate'];
 $str=$loc."-".$sen;
 
 
-$result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen' and  date>='$start' and date<='$end' and location='$loc'");
+$result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen' and  date>='$start' and date<='$end' and location='$loc' order by date asc");
  while($row=mysqli_fetch_array($result))
  {
 	$dataPoints[]=$row["date"];	
    $temp=$row["date"];
    $reads[]=$row["reading"];
    if(40>$row["reading"]){
-    $clrarray[]="red";
+    $clrarray[]="blue";
    }
    else if(90>$row["reading"]){
-    $clrarray[]="blue";
+    $clrarray[]="green";
     }
     else{
-        $clrarray[]="green";
+        $clrarray[]="red";
     }
    $csvdata[]=array('date'=>$temp,'Values'=>$row["reading"]);
  }
@@ -45,7 +45,27 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
         padding: 0;
         font-family: sans-serif;
       }
-      
+      .box {
+  float: left;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius:2px;
+  clear: both;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
       .chartMenu p {
         padding: 10px;
         font-size: 20px;
@@ -188,6 +208,13 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
       <div class="chartBox">
         <canvas id="myChart"></canvas>
       </div>
+      <div class="arrange">
+      <div><div class='box red'></div> &nbsp HIGH RANGE</div>
+<br>
+<div><div class='box green'></div>  &nbsp MIDDLE RANGE</div>
+<br>
+<div><div class='box blue'></div> &nbsp LOW RANGE</div>
+      </div>
     </div>
     <center> <input type="Submit"  value="Export" id="bt" class="shadow-lg rounded" onclick="downloadPDF2()"> </center>
     
@@ -203,7 +230,6 @@ new Chart("myChart", {
       lineTension: 0.4,
       pointRadius: 5,
       backgroundColor: <?php echo json_encode($clrarray); ?>,
-      lineColor :"#000000",
       data: <?php echo json_encode($reads); ?>
     }]
   },
