@@ -55,9 +55,9 @@
         }
         .btn1{
             font-size: 6px;
-            width:200px;
+            width:140px;
             border:none;
-            height:40px;
+            height:30px;
             background-color:#1F2937;
             color:whitesmoke;
             text-align:center;
@@ -67,11 +67,20 @@
             color: #1F2937;
             background-color: whitesmoke;
         }
+        .card{
+            width:300px;
+            height:40px;
+            padding:7px;
+            margin-bottom: 10px;
+        }
+        .card:hover{
+            cursor:pointer;
+        }
         .editDash{
             font-size: 16px;
         }
         .content{
-            margin-left: 38%;
+            /* margin-left: 38%; */
             align-items: center;
         }
     </style>
@@ -90,6 +99,7 @@
            <?php echo " <h3 id=\"dashboardname\">".$_GET['dbn']."</h3>"; ?>
         </div>
         <br><br>
+      <center>
         <div class="content">
             <?php
                 $dashBoard = $conn->query($query);
@@ -103,7 +113,7 @@
                 while($str = mysqli_fetch_assoc($exec))
                 {
                     $oldLis[$i++] = $str['locSen'];
-                    $res = $res."<div id=\"div".($i-1)."\" class=\"editDash\"><h5>".$str['locSen']."</h5></div>";
+                    $res = $res."<div id=\"div".($i-1)."\" class=card shadow.\"editDash\"><h5>".$str['locSen']."</h5></div>";
                 }
                 $res .= "</div><div class=\"order\"><input id=\"output\" type=\"text\" value=\"\"></div>";
                 echo $res;
@@ -111,5 +121,7 @@
             <br><br>
             <button onclick="dispVal()" class="btn1" id="config" style="font-size:17px">Update</button>
         </div>
+      </center>
+       
     </body>
 </html>

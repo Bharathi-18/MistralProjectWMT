@@ -6,12 +6,31 @@
       $clrarray=array(); 
 ?>
 <?php
-$con=mysqli_connect('localhost','root','','reports');
+$con=mysqli_connect('localhost','root','','wmt');
 $loc=$_GET['location'];
 $sen=$_GET['sensors'];
 $start=$_GET['startdate'];
 $end=$_GET['enddate'];
 $str=$loc."-".$sen;
+
+if($sen=="PH")
+{
+$low="Acidic";
+$mid="Pure";
+$high="Alkaline";
+}
+else if($sen=="Turbidity")
+{
+$low="Clear";
+$mid="Cloudy";
+$high="Dirty";
+}
+else
+{
+$low="Low Range";
+$mid="Mid Range";
+$high="High Range";
+}
 
 
 $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen' and  date>='$start' and date<='$end' and location='$loc' order by date asc");
@@ -20,15 +39,44 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
 	$dataPoints[]=$row["date"];	
    $temp=$row["date"];
    $reads[]=$row["reading"];
-   if(40>$row["reading"]){
-    $clrarray[]="blue";
+   if($sen=="PH")
+   {
+    if($row["reading"]<6.5){
+      $clrarray[]="blue";
+     }
+     else if($row["reading"]<=7.5){
+      $clrarray[]="green";
+      }
+      else if($row["reading"]<=14.0){
+          $clrarray[]="red";
+      }
+      
    }
-   else if(90>$row["reading"]){
-    $clrarray[]="green";
-    }
-    else{
-        $clrarray[]="red";
-    }
+   
+   else if($sen=="Turbidity")
+   {
+    if(20>$row["reading"]){
+      $clrarray[]="blue";
+     }
+     else if(50>$row["reading"]){
+      $clrarray[]="green";
+      }
+      else{
+          $clrarray[]="red";
+      }
+   }
+   else 
+   {
+    if(20>$row["reading"]){
+      $clrarray[]="blue";
+     }
+     else if(50>$row["reading"]){
+      $clrarray[]="green";
+      }
+      else{
+          $clrarray[]="red";
+      }
+   }
    $csvdata[]=array('date'=>$temp,'Values'=>$row["reading"]);
  }
 
@@ -103,7 +151,6 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        
     function downloadPDF2() {
         var stri='<?=$str?>';
    var canvas = document.querySelector('#myChart');
@@ -112,7 +159,7 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
    doc.text(stri,74,20);
    doc.setFontSize(30);
    doc.addImage(canvasImg, 'PNG', 30, 30, 150, 100 );
-   doc.save('canvas.pdf');
+   doc.save('report.pdf');
    
    let datas = $("#export-data").val();
                     if(datas == ''){
@@ -209,11 +256,11 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
         <canvas id="myChart"></canvas>
       </div>
       <div class="arrange">
-      <div><div class='box red'></div> &nbsp HIGH RANGE</div>
+      <div><div class='box red'></div> &nbsp <?=$high?></div>
 <br>
-<div><div class='box green'></div>  &nbsp MIDDLE RANGE</div>
+<div><div class='box green'></div>  &nbsp <?=$mid?></div>
 <br>
-<div><div class='box blue'></div> &nbsp LOW RANGE</div>
+<div><div class='box blue'></div> &nbsp <?=$low?></div>
       </div>
     </div>
     <center> <input type="Submit"  value="Export" id="bt" class="shadow-lg rounded" onclick="downloadPDF2()"> </center>
