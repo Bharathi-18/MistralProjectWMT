@@ -147,7 +147,7 @@
                 font: bold;
             }
             
-            #id2,#id3,#id4,#id5{
+            #id2,#id3,#id4,#id5,#id6{
                 display:none;
             }
 
@@ -214,7 +214,7 @@
                 document.getElementById("id2").style.display="none";
                 document.getElementById("id3").style.display="none";
                 document.getElementById("popup").style.display="none";
-
+                document.getElementById("id6").style.display="none";
                 document.getElementById("id4").style.display="none";
                 document.getElementById("id5").style.display="none";
                 document.getElementById("searching").style.display="flex";
@@ -222,10 +222,10 @@
             function configfunc(){
                 document.getElementById("id1").style.display="none";
                 document.getElementById("id2").style.display="flex";
-
                 document.getElementById("id3").style.display="none";
                 document.getElementById("id4").style.display="none";
                 document.getElementById("id5").style.display="none";
+                document.getElementById("id6").style.display="none";
                 document.getElementById("searching").style.display="none";
                 document.getElementById("popup").style.display="none";
             }
@@ -235,7 +235,7 @@
                 document.getElementById("id3").style.display="flex";
                 document.getElementById("id4").style.display="none";
                 document.getElementById("popup").style.display="none";
-
+                document.getElementById("id6").style.display="none";
                 document.getElementById("id5").style.display="none";
                 document.getElementById("searching").style.display="none";
             }
@@ -245,6 +245,7 @@
                 document.getElementById("id3").style.display="none";
                 document.getElementById("id4").style.display="flex";
                 document.getElementById("id5").style.display="none";
+                document.getElementById("id6").style.display="none";
                 document.getElementById("popup").style.display="none";
                 document.getElementById("searching").style.display="none";
             }
@@ -255,6 +256,7 @@
                 document.getElementById("id4").style.display="none";
                 document.getElementById("id5").style.display="flex";
                 document.getElementById("popup").style.display="none";
+                document.getElementById("id6").style.display="none";
                 document.getElementById("searching").style.display="none";
             }
     	    function popup(){
@@ -265,6 +267,17 @@
                 document.getElementById("popup").style.display="none";
                 document.getElementById("searching").style.display="none";
             }
+            function editconfigfunc(){
+                document.getElementById("id1").style.display="none";
+                document.getElementById("id2").style.display="none";
+                document.getElementById("id3").style.display="none";
+                document.getElementById("id4").style.display="none";
+                document.getElementById("id5").style.display="none";
+                document.getElementById("id6").style.display="flex";
+                document.getElementById("searching").style.display="none";
+                document.getElementById("popup").style.display="none";
+            }
+
         </script>
     </head>
     <body>
@@ -328,6 +341,10 @@
                    <i class="fa fa-th-large" aria-hidden="true" style="font-size:12px"></i>
                    Configure Dashboards
               </button>
+              <button onclick="editconfigfunc()" class="btn1" id="config" style="font-size:17px">
+                   <i class="fa fa-th-large" aria-hidden="true" style="font-size:12px"></i>
+                   Edit Dashboards
+              </button>
         </div>
         </div>
         </div>
@@ -345,6 +362,9 @@
             </div>
             <div id="id5">
                 <iframe src="add.html" style="border:1px black;height:90vh;width:100%;"></iframe>
+            </div>
+            <div id="id6">
+                <iframe src="editDashSelect.php" style="border:1px black;height:85vh;width:100%"></iframe>
             </div>
     </body>
 </html>
