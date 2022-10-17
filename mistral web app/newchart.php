@@ -6,7 +6,7 @@
       $clrarray=array(); 
 ?>
 <?php
-$con=mysqli_connect('localhost','root','','reports');
+$con=mysqli_connect('localhost','root','','wmt');
 $loc=$_GET['location'];
 $sen=$_GET['sensors'];
 $start=$_GET['startdate'];
