@@ -24,7 +24,7 @@
                 font-size: 6px;
                 width:200px;
                 border:none;
-                height:30px;
+                height:40px;
                 background-color:#1F2937;
                 color:whitesmoke;
                 text-align:center;
@@ -330,7 +330,7 @@
 
   <div class="popup" id="popup">
 <div class="popup-content" >
-<div style="padding-bottom:30px"><img src="pi.png" alt="close" class="close" onclick="popclose()">  </div>         
+<div style="padding-bottom:40px"><img src="pi.png" alt="close" class="close" onclick="popclose()">  </div>         
 <center> 
 <div style="padding-left:30px;padding-bottom:20px"><button class="drop btn1"  style="font-size:17px"onclick="createfunc()"> <i class="fa fa-user-plus" style="font-size:12px"></i>&nbsp;Create User</button></div>
 <div style="padding-left:30px;padding-bottom:20px">           
@@ -341,9 +341,7 @@
                    <i class="fa fa-th-large" aria-hidden="true" style="font-size:12px"></i>
                    Configure Dashboards
               </button>
-             
-        </div>
-        <div style="padding-left:30px;padding-bottom:20px"> <button onclick="editconfigfunc()" class="btn1" id="config" style="font-size:17px">
+              <button onclick="editconfigfunc()" class="btn1" id="config" style="font-size:17px">
                    <i class="fa fa-th-large" aria-hidden="true" style="font-size:12px"></i>
                    Edit Dashboards
               </button></div>

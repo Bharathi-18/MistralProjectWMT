@@ -36,7 +36,7 @@ session_start();
 // $_SESSION['r']=$row['readings'];
 // $_SESSION['l']=$row['Loc/Sensor'];
 $_SESSION['r']=0.5;
-$_SESSION['l']=0.5;
+$_SESSION['l']="tuty";
 ?>
 
       <br>
