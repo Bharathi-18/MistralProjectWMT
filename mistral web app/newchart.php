@@ -112,7 +112,7 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
    doc.text(stri,74,20);
    doc.setFontSize(30);
    doc.addImage(canvasImg, 'PNG', 30, 30, 150, 100 );
-   doc.save('canvas.pdf');
+   doc.save('report.pdf');
    
    let datas = $("#export-data").val();
                     if(datas == ''){

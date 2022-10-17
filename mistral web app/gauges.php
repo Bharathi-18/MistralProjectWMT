@@ -1,7 +1,7 @@
 <?php 
   session_start();
-  $value=$_SESSION['r'];
-  $head=$_SESSION['l'];
+  $value="0.5";
+  $head="tuty-TDS";
 ?>
 
 <html>
