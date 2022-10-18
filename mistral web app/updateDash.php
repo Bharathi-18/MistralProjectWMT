@@ -58,15 +58,22 @@ use function PHPSTORM_META\type;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
-	<script src = "https://code.jquery.com/jquery-1.10.2.js" ></script>
-	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js" ></script>
-    <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src ="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        swal({title:"Updated Successfully!",
+        // function alertUser()
+        // {
+            swal({title:"Updated Successfully!",
                 icon:"success",
                 button:"OK",
+                // timer:10000
             });
+        // }
     </script>
 </head>
 <body>
