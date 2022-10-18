@@ -158,7 +158,19 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
    var doc = new jsPDF('p','mm');
    doc.text(stri,74,20);
    doc.setFontSize(30);
-   doc.addImage(canvasImg, 'PNG', 30, 30, 150, 100 );
+   doc.addImage(canvasImg, 'PNG', 12, 30, 150, 100 );
+   doc.setDrawColor(0);
+  doc.setFillColor(255,0,0);
+  doc.rect(165,31,3,3,'F');
+
+  doc.setDrawColor(0);
+  doc.setFillColor(0,0,255);
+  doc.rect(165,38,3,3,'F');
+
+  doc.setDrawColor(0);
+  doc.setFillColor(0,255,0);
+  doc.rect(165,45.5,3,3,'F');
+   doc.fromHTML($('#arrange').get(0),170,30,{});
    doc.save('report.pdf');
    
    let datas = $("#export-data").val();
@@ -255,7 +267,7 @@ $result = mysqli_query($con,"SELECT date,reading FROM report where sensor='$sen'
       <div class="chartBox">
         <canvas id="myChart"></canvas>
       </div>
-      <div class="arrange">
+      <div id="arrange">
       <div><div class='box red'></div> &nbsp <?=$high?></div>
 <br>
 <div><div class='box green'></div>  &nbsp <?=$mid?></div>

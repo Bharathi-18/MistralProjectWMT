@@ -34,11 +34,10 @@
 			var i = document.getElementById("output").value;
             var name = document.querySelector("#dashboardname").textContent;
             // console.log(name);
-            // swal({title:"Updated Successfully!",
-            //     icon:"success",
-            //     button:"OK",
-            //     // timer:10000
-            // });
+            swal({title:"Updated Successfully!",
+                icon:"success",
+              button:"OK",
+             });
             window.location = "updateDash.php?ord="+i+"&dbn="+name;
             console.log(i);
 
