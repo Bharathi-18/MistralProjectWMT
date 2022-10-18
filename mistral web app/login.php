@@ -7,7 +7,7 @@
   <script>
       document.getElementById("login").addEventListener("click",dash);
       function dash(){
-        window.location.href="dash.html";
+        window.location.href="dash.php";
       }
   </script>
 

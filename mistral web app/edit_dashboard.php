@@ -11,6 +11,7 @@
 	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
 	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src ="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
 		$(function() {
 			$( "#reorder" ).sortable({
@@ -21,10 +22,12 @@
 		});
 		function getIdsOfImages() {
 			var values = [];
+            
 			$('.editDash').each(function (index) {
 				values.push($(this).attr("id").replace("div", ""));
 			});
             $('#output').val(values);
+            console.log(values);
 		}
 		function dispVal()
 		{
@@ -32,6 +35,8 @@
             var name = document.querySelector("#dashboardname").textContent;
             // console.log(name);
             window.location = "updateDash.php?ord="+i+"&dbn="+name;
+            console.log(i);
+
 		}
 	</script>
     <style>
@@ -50,9 +55,7 @@
         ::placeholder{
             color: whitesmoke;
         }
-        #output{
-            display:none;
-        }
+
         .btn1{
             font-size: 6px;
             width:140px;
@@ -108,13 +111,14 @@
                 $val = "SELECT * from ".$tableName;
                 $exec = $conn->query($val);
                 $oldLis = [];
-                $i = 0;
+                $indexCnt = 0;
                 $res = "<div id=\"reorder\">";
                 while($str = mysqli_fetch_assoc($exec))
                 {
-                    $oldLis[$i++] = $str['locSen'];
-                    $res = $res."<div id=\"div".($i-1)."\" class=card shadow.\"editDash\"><h5>".$str['locSen']."</h5></div>";
+                    $oldLis[$indexCnt++] = $str['locSen'];
+                    $res = $res."<div class=\"card shadow\"><div id=\"div".($indexCnt-1)."\" class=\"editDash\"><h5>".$str['locSen']."</h5></div></div>";
                 }
+                $indexCnt = 0;
                 $res .= "</div><div class=\"order\"><input id=\"output\" type=\"text\" value=\"\"></div>";
                 echo $res;
             ?>
