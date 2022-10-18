@@ -6,7 +6,16 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> 
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            function alert(){
+                swal({title:"Created Successfully!",
+                icon:"success",
+                button:"OK",
+                // timer:10000
+            });
+            }
+        </script>
     <style>    
     .card{
         margin-top: 7%;
@@ -49,7 +58,7 @@
                         </datalist>
                     </div>
                     <div>
-                        <input type="Submit"  class="shadow rounded" class="btn" value="Create" style="width:100px;background-color:#1F2937;color:whitesmoke;margin-bottom:5%;">
+                        <input type="Submit"  class="shadow rounded" class="btn" value="Create" style="width:100px;background-color:#1F2937;color:whitesmoke;margin-bottom:5%;" onclick="alert()">
                     </div>
                 </form>
             </div>
