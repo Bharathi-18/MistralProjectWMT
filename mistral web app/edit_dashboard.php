@@ -36,9 +36,20 @@
             // console.log(name);
             swal({title:"Updated Successfully!",
                 icon:"success",
+<<<<<<< HEAD
                 button:"OK",
                 // timer:10000
             });
+=======
+<<<<<<< HEAD
+              button:"OK",
+             });
+=======
+                button:"OK",
+                // timer:10000
+            });
+>>>>>>> d5b5d2da997c9c2a64d59ba109f0b785399f21e8
+>>>>>>> 98e32c046e58b5aafd58295bcca6eb5f3acdd908
             window.location = "updateDash.php?ord="+i+"&dbn="+name;
             console.log(i);
 
