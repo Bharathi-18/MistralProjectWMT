@@ -68,15 +68,25 @@ use function PHPSTORM_META\type;
     <script>
         // function alertUser()
         // {
-            swal({title:"Updated Successfully!",
-                icon:"success",
-                button:"OK",
-                // timer:10000
-            });
+            // swal({title:"Updated Successfully!",
+            //     icon:"success",
+            //     button:"OK",
+            //     // timer:10000
+            // });
         // }
-    </script>
+        function updation(){
+           
+            swal({title:"Updated Successfully!",
+              icon:"success",
+              button:"OK",
+            }).then(function(){
+                window.history.back();
+            });
+        }
+
+</script>
 </head>
-<body>
+<body onload="updation()">
     
 </body>
 </html>
