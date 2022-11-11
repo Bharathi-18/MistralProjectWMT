@@ -6,9 +6,10 @@ client.on("connect",function()
 {
     setInterval(function() {
         var random = Math.random()*50;
+        var st = '{"tem":'+random+',"hum":'+(random+1)+',"tds":'+(random+2)+'}';
         console.log(random);
         if(random<30){
-            client.publish('bharathi','MQTT generated Random value : '+random.toString()+'.'); 
+            client.publish('mistral',''+st.toString());
         }
     } ,1000);
 });

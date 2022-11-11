@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>jQuery Get Tag Value</title>
+ 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+</head>
+ 
+<script type="text/javascript">
+           var sensorLis = [];
+
+$(function(){
+
+    $('p').each(function () {
+            var i = $(this).attr('id');
+            console.log(i);
+            sensorLis.push(i.toString().toLowerCase());
+        });
+
+    console.log(sensorLis);
+    // var $temp = $('p').attr("id");
+    // alert($temp);
+	// console.log($temp.toString());
+
+    // var $temp = $('.class1').html();
+    // alert($temp);
+	// console.log($temp);
+
+    // var $temp = $('#id1').html();
+    // alert($temp);
+        var topic = "test";
+        document.getElementById(topic).innerHTML = topic;
+});
+
+</script>
+<body>
+
+<h1>jQuery Get Tag Value</h1>
+
+    <p id="hello">
+    	This is paragrah 1
+    </p>
+	
+	<div class="class1">
+		This is class='class1'
+	</div>
+	
+	<div id="id1">
+		<p id="hello1">This is id='id1'</p>
+	</div>
+
+    <h6 id="test"></h6>
+
+</body>
+</html>

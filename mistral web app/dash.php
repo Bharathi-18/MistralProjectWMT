@@ -325,7 +325,6 @@
                     </li>
                 </ul> 
             </div>  
-
         <div class="popup" id="popup">
 <div class="popup-content" >
 <div style="padding-bottom:40px"><img src="pi.png" alt="close" class="close" onclick="popclose()">  </div>         

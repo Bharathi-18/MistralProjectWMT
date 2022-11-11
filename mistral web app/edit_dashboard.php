@@ -91,6 +91,10 @@
             /* margin-left: 38%; */
             align-items: center;
         }
+        #output{
+            display:none;
+        }
+        
     </style>
     </head>
     <body>

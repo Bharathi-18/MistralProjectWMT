@@ -64,7 +64,11 @@
             /* .dashAlign
             {
                 text-align: left;
-            } */
+            } */]
+            ]
+
+            ]]\
+            
 
         </style>
     </head>
@@ -93,13 +97,20 @@
                     <div class="aligning" style="margin-top:-35px;padding-top:0; display:inline-flex;align-items: center;justify-content: center;">
                         <div style="margin-right:15px;">&nbsp;</div>    
                         <div class="sensor" >
-                            <input class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >
-                            <datalist id="sensorlist">
-                                <?php
-                                    $var = "<option value=\"Temperature\"><option value=\"Env-Temp\"><option value=\"Humidity\"><option value=\"Turbidity\"><option value=\"pH\">";
+                            <select class="shadow-sm rounded" list="sensorlist" name="sensor" id="sens" placeholder="Choose Sensor" >
+                            <!-- <datalist id="sensorlist"> -->
+                                <!-- <?php
+                                    $var = "<option value=\"environment temperature\"><option value=\"water temperature\"><option value=\"humidity\"><option value=\"turbidity\"><option value=\"pH\"><option value=\"dissolved solids\">";
                                     echo $var;
-                                ?>
-                            </datalist>            
+                                ?> -->
+                                <option value="environment temperature">environment temperature</option>
+                                <option value="water temperature">water temperature</option>
+                                <option value="humidity">humidity</option>
+                                <option value="turbidity">turbidity</option>
+                                <option value="dissolved solids">dissolved solids</option>
+                                <option value="pH">pH</option>
+                            <!-- </datalist>             -->
+                            </select>
                         </div>
                         <div class="icons1" >
                             <i class="add fa fa-plus-circle" onclick="fun()"></i>

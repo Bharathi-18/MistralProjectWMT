@@ -11,25 +11,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"  type="text/javascript"></script>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script type="text/javascript">
+          var sensorLis = [];
+           
+// $(document).ready(function(){
+
+      // }
       $(function(){
-        $("button").click(function() {
+        // $("button").click(function() {
+
+    
+          $('h6').each(function () {
+              var i = $(this).attr('id');
+              console.log(i.toString());
+              sensorLis.push(i.toString().toLowerCase());
+              console.log(sensorLis);
+          });
+
           console.log("bharathi");
           var name = $(this).val();
           // var name = "";
           var id = "";
-          // const buttonGroup = document.getElementById("btnName");
-          // const buttonGroupPressed = e => { 
-          // const isButton = e.target.nodeName === 'BUTTON';
-          // if(!isButton) {
-          //   return;
-          // }
-          // id = e.target.id;
-          // }     
-          // buttonGroup.addEventListener("click", buttonGroupPressed);
-          // name = "mistral/Temperature";
-   
-          var topicName = "mistral/";
+          
+          var topicName = "mistral";
           var flag = 0;
           let i = 0;
           for(i =0;i<name.length;i++)
@@ -39,11 +46,14 @@
               break;
             }
           }
-          topicName = name.slice(i+1,name.length);
+          // topicName = name.slice(i+1,name.length);
           console.log(topicName);
-          console.log(name);
+          console.log("name : "+name);
           name+="txt";
-          document.getElementById(name).innerHTML = topicName;
+          $("mistral").text("&nbsp; bharathi this is p tag");
+          
+
+          // document.getElementById(name).innerHTML = topicName;
           
           client = new Paho.MQTT.Client("test.mosquitto.org", 8080, "clientId");
           client.onConnectionLost = onConnectionLost;
@@ -55,7 +65,9 @@
 
           function onConnect() {
             console.log("onConnect");
-            client.subscribe(topicName);
+            client.subscribe("mistral/pH");
+            console.log("Success mistral/pH");
+
           }
           function onConnectionLost(responseObject) {
             if (responseObject.errorCode !== 0) {
@@ -64,12 +76,21 @@
           }
           function onMessageArrived(message) {
             console.log((message.payloadString));
-            let dispVal = message.payloadString.slice(0,5);
-            document.getElementById(name).innerHTML = dispVal;
+            console.log("   bharathi");
+            let msg = JSON.parse(message.payloadString);
+            let dispVal = msg["tds"];
+            let dispVal1 = msg["hum"];
+            document.getElementById("temperature").innerHTML = dispVal;
+            document.getElementById("humidity").innerHTML = dispVal1;
+            var idName = "";
+            // for(let val in sensorLis)
+            // {
+            //   idName = val.slice(0,3);
+            //   document.getElementById(val) = msg[idName];
+            // }
           }
-          // const result = document.getElementById("result");
         });
-      });
+      // });
           </script>
     <style>
       #publicDash
@@ -133,12 +154,12 @@
                 $className = "card bg-danger";          
               }
               $res = $res."<div class=".'"'.$className.'"'."style=".'"'."height:200px;".'"'."><div class=".'"'."card-body text-center";
-              $res = $res.'"'."><button id=\"".$rslt['locSen']."\" type=\"button\" class=\"btn btn-dark\" value=\"".$rslt['locSen']."\">click</button><p id=\"".$rslt['locSen']."txt\"></div>";
+              $res = $res.'"'."><button id=\"".$rslt['locSen']."\" type=\"button\" class=\"btn btn-dark\" value=\"".$rslt['locSen']."\">click</button><h6 id=\"".$rslt['locSen']."\">Test</h6></div>";
 
               $tempVar = "";
               $s = $rslt['locSen'];
               $val = "";
-              $res = $res."<div class=\"card-body text-center\"><p class=\"card-text\">".$rslt['locSen']."</p><br><br><p class=\"card-text\">".$val."</div></div>";
+              $res = $res."<div class=\"card-body text-center\"><h5 class=\"card-text\">".$rslt['locSen']."</h5><br><br><h5 class=\"card-text\">".$val."</h5></div></div>";
               $cnt++;
               if($cnt%3==0)
               {

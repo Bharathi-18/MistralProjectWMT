@@ -63,15 +63,27 @@
         $dashInserted = $conn->prepare($insertDash);
         $dashInserted->execute();
 
-        $createTable = "CREATE TABLE ".$tableName."(locSen varchar(50))";
+        $createTable = "CREATE TABLE ".$tableName."(sensorName varchar(50), locSen varchar(50))";
         $tableCreated = $conn->prepare($createTable);
         $tableCreated->execute();
-
+        $sensName = "";
         for($i=1;$i<strlen($p);$i++)
         {
             if($p[$i]==',' || $p[$i]=='@' )
             {
-                $query = "INSERT INTO ".$tableName." VALUES('".$str."')";                            
+                if($str=="environment temperature")
+                    $sensName = "tempc";
+                if($str=="water temperature")
+                    $sensName = "wtemp";
+                if($str=="humidity")
+                    $sensName = "hum";
+                if($str=="dissolved solids")
+                    $sensName = "tds";
+                if($str=="turbidity")
+                    $sensName = "turb";
+                if($str=="pH")
+                    $sensName = "pH";
+                $query = "INSERT INTO ".$tableName." VALUES('".$sensName."','".$str."')";
                 $stmnt = $conn->prepare($query);
                 $stmnt->execute();
                 echo "str : ".$str;
